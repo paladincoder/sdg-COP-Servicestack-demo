@@ -1,0 +1,16 @@
+C:\Projects\POCMVC5\POCMVC5\POCMVC5.ServiceInterface\bin\Debug\POCMVC5.ServiceInterface.dll
+C:\Projects\POCMVC5\POCMVC5\POCMVC5.ServiceInterface\bin\Debug\POCMVC5.ServiceInterface.pdb
+C:\Projects\POCMVC5\POCMVC5\POCMVC5.ServiceInterface\bin\Debug\POCMVC5.ServiceModel.dll
+C:\Projects\POCMVC5\POCMVC5\POCMVC5.ServiceInterface\bin\Debug\ServiceStack.Client.dll
+C:\Projects\POCMVC5\POCMVC5\POCMVC5.ServiceInterface\bin\Debug\ServiceStack.Common.dll
+C:\Projects\POCMVC5\POCMVC5\POCMVC5.ServiceInterface\bin\Debug\ServiceStack.dll
+C:\Projects\POCMVC5\POCMVC5\POCMVC5.ServiceInterface\bin\Debug\ServiceStack.Interfaces.dll
+C:\Projects\POCMVC5\POCMVC5\POCMVC5.ServiceInterface\bin\Debug\ServiceStack.Text.dll
+C:\Projects\POCMVC5\POCMVC5\POCMVC5.ServiceInterface\bin\Debug\POCMVC5.ServiceModel.pdb
+C:\Projects\POCMVC5\POCMVC5\POCMVC5.ServiceInterface\bin\Debug\ServiceStack.xml
+C:\Projects\POCMVC5\POCMVC5\POCMVC5.ServiceInterface\bin\Debug\ServiceStack.Client.xml
+C:\Projects\POCMVC5\POCMVC5\POCMVC5.ServiceInterface\bin\Debug\ServiceStack.Common.xml
+C:\Projects\POCMVC5\POCMVC5\POCMVC5.ServiceInterface\bin\Debug\ServiceStack.Text.xml
+C:\Projects\POCMVC5\POCMVC5\POCMVC5.ServiceInterface\obj\Debug\POCMVC5.ServiceInterface.csprojResolveAssemblyReference.cache
+C:\Projects\POCMVC5\POCMVC5\POCMVC5.ServiceInterface\obj\Debug\POCMVC5.ServiceInterface.dll
+C:\Projects\POCMVC5\POCMVC5\POCMVC5.ServiceInterface\obj\Debug\POCMVC5.ServiceInterface.pdb

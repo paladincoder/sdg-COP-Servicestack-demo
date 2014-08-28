@@ -1,0 +1,6 @@
+C:\Projects\POCMVC5\POCMVC5\POCMVC5.ServiceModel\bin\Debug\POCMVC5.ServiceModel.dll
+C:\Projects\POCMVC5\POCMVC5\POCMVC5.ServiceModel\bin\Debug\POCMVC5.ServiceModel.pdb
+C:\Projects\POCMVC5\POCMVC5\POCMVC5.ServiceModel\bin\Debug\ServiceStack.Interfaces.dll
+C:\Projects\POCMVC5\POCMVC5\POCMVC5.ServiceModel\obj\Debug\POCMVC5.ServiceModel.csprojResolveAssemblyReference.cache
+C:\Projects\POCMVC5\POCMVC5\POCMVC5.ServiceModel\obj\Debug\POCMVC5.ServiceModel.dll
+C:\Projects\POCMVC5\POCMVC5\POCMVC5.ServiceModel\obj\Debug\POCMVC5.ServiceModel.pdb
