@@ -9,7 +9,7 @@ namespace EmptyServiceStack.ServiceInterface
 {
 	public class MyServices : Service
 	{
-		public object Any(Hello request)
+		public HelloResponse Get(Hello request)
 		{
 			return new HelloResponse
 			{

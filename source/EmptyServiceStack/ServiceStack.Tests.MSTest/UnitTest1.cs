@@ -1,18 +1,17 @@
 ﻿using System;
-using NUnit.Framework;
 using EmptyServiceStack.ServiceInterface;
 using EmptyServiceStack.ServiceModel;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ServiceStack.Testing;
-using ServiceStack;
 
-namespace EmptyServiceStack.Tests
+namespace ServiceStack.Tests.MSTest
 {
-	[TestFixture]
-	public class UnitTests
+	[TestClass]
+	public class UnitTest1
 	{
-		private readonly ServiceStackHost appHost;
-
-		public UnitTests()
+		private static ServiceStackHost appHost;
+		[ClassInitialize]
+		public static void TestInitialize(TestContext context)
 		{
 			appHost = new BasicAppHost(typeof(MyServices).Assembly)
 			{
@@ -20,17 +19,15 @@ namespace EmptyServiceStack.Tests
 				{
 					//Add your IoC dependencies here
 				}
-			}
-			.Init();
+			}.Init();
 		}
-
-		[TestFixtureTearDown]
-		public void TestFixtureTearDown()
+		[ClassCleanup]
+		public static void TestCleanup()
 		{
 			appHost.Dispose();
 		}
 
-		[Test]
+		[TestMethod]
 		public void TestMethod1()
 		{
 			var service = appHost.Container.Resolve<MyServices>();
@@ -40,7 +37,8 @@ namespace EmptyServiceStack.Tests
 				Name = "World"
 			});
 
-			Assert.That(response.Result, Is.EqualTo("Hello, World!"));
+			Assert.AreEqual<string>(response.Result, "Hello, World!");
 		}
+
 	}
 }

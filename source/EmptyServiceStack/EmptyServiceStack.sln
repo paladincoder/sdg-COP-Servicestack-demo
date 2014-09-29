@@ -9,7 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmptyServiceStack.ServiceMo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmptyServiceStack.ServiceInterface", "EmptyServiceStack\EmptyServiceStack.ServiceInterface\EmptyServiceStack.ServiceInterface.csproj", "{801A0F89-D5F6-49A6-BCEA-6624388C98A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmptyServiceStack.Tests", "EmptyServiceStack\EmptyServiceStack.Tests\EmptyServiceStack.Tests.csproj", "{D22B5797-9F2A-4BA7-9636-6EFCE62EBE00}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmptyServiceStack.Tests.NUnit", "EmptyServiceStack\EmptyServiceStack.Tests\EmptyServiceStack.Tests.NUnit.csproj", "{D22B5797-9F2A-4BA7-9636-6EFCE62EBE00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceStack.Tests.MSTest", "ServiceStack.Tests.MSTest\ServiceStack.Tests.MSTest.csproj", "{BE6B0083-C09C-480F-9226-A32BECBA7EFA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{D22B5797-9F2A-4BA7-9636-6EFCE62EBE00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D22B5797-9F2A-4BA7-9636-6EFCE62EBE00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D22B5797-9F2A-4BA7-9636-6EFCE62EBE00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE6B0083-C09C-480F-9226-A32BECBA7EFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE6B0083-C09C-480F-9226-A32BECBA7EFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE6B0083-C09C-480F-9226-A32BECBA7EFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE6B0083-C09C-480F-9226-A32BECBA7EFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
