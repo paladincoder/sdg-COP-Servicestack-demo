@@ -3,15 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmptyServiceStack", "EmptyServiceStack\EmptyServiceStack\EmptyServiceStack.csproj", "{4389B305-B381-4B50-B1A8-BBB5259A0524}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaladinGolf", "EmptyServiceStack\EmptyServiceStack\PaladinGolf.csproj", "{4389B305-B381-4B50-B1A8-BBB5259A0524}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmptyServiceStack.ServiceModel", "EmptyServiceStack\EmptyServiceStack.ServiceModel\EmptyServiceStack.ServiceModel.csproj", "{53E82AC1-DD1D-4C66-B55F-F9F4ACFB2F40}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaladinGolf.ServiceModel", "EmptyServiceStack\EmptyServiceStack.ServiceModel\PaladinGolf.ServiceModel.csproj", "{53E82AC1-DD1D-4C66-B55F-F9F4ACFB2F40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmptyServiceStack.ServiceInterface", "EmptyServiceStack\EmptyServiceStack.ServiceInterface\EmptyServiceStack.ServiceInterface.csproj", "{801A0F89-D5F6-49A6-BCEA-6624388C98A4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaladinGolf.ServiceInterface", "EmptyServiceStack\EmptyServiceStack.ServiceInterface\PaladinGolf.ServiceInterface.csproj", "{801A0F89-D5F6-49A6-BCEA-6624388C98A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmptyServiceStack.Tests.NUnit", "EmptyServiceStack\EmptyServiceStack.Tests\EmptyServiceStack.Tests.NUnit.csproj", "{D22B5797-9F2A-4BA7-9636-6EFCE62EBE00}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaladinGolf.Tests.NUnit", "EmptyServiceStack\EmptyServiceStack.Tests\PaladinGolf.Tests.NUnit.csproj", "{D22B5797-9F2A-4BA7-9636-6EFCE62EBE00}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceStack.Tests.MSTest", "ServiceStack.Tests.MSTest\ServiceStack.Tests.MSTest.csproj", "{BE6B0083-C09C-480F-9226-A32BECBA7EFA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaladinGolf.Tests.MSTest", "ServiceStack.Tests.MSTest\PaladinGolf.Tests.MSTest.csproj", "{BE6B0083-C09C-480F-9226-A32BECBA7EFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaladinGolf.Data", "PaladinGolf.Data\PaladinGolf.Data.csproj", "{07526CF9-0150-4494-BCB1-4B3961DC6485}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{B4F8E2E8-4456-4A53-AE99-BBB289AFCFAA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MSTest", "MSTest", "{A537D748-B25B-4772-84CC-835164930048}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NUnit", "NUnit", "{E6B13717-5213-4E88-849E-4E40E34BCCDB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,8 +47,18 @@ Global
 		{BE6B0083-C09C-480F-9226-A32BECBA7EFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE6B0083-C09C-480F-9226-A32BECBA7EFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE6B0083-C09C-480F-9226-A32BECBA7EFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07526CF9-0150-4494-BCB1-4B3961DC6485}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07526CF9-0150-4494-BCB1-4B3961DC6485}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07526CF9-0150-4494-BCB1-4B3961DC6485}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07526CF9-0150-4494-BCB1-4B3961DC6485}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D22B5797-9F2A-4BA7-9636-6EFCE62EBE00} = {E6B13717-5213-4E88-849E-4E40E34BCCDB}
+		{BE6B0083-C09C-480F-9226-A32BECBA7EFA} = {A537D748-B25B-4772-84CC-835164930048}
+		{A537D748-B25B-4772-84CC-835164930048} = {B4F8E2E8-4456-4A53-AE99-BBB289AFCFAA}
+		{E6B13717-5213-4E88-849E-4E40E34BCCDB} = {B4F8E2E8-4456-4A53-AE99-BBB289AFCFAA}
 	EndGlobalSection
 EndGlobal

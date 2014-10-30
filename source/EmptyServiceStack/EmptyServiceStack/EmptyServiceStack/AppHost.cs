@@ -1,8 +1,13 @@
 ﻿using Funq;
 using ServiceStack;
-using EmptyServiceStack.ServiceInterface;
+using PaladinGolf.ServiceInterface;
+using System.Data;
+using ServiceStack.Data;
+using ServiceStack.OrmLite;
+using PaladinGolf.Data;
+using System.Configuration;
 
-namespace EmptyServiceStack
+namespace PaladinGolf
 {
 	public class AppHost : AppHostBase
 	{
@@ -11,7 +16,7 @@ namespace EmptyServiceStack
 		/// Base constructor requires a name and assembly to locate web service classes. 
 		/// </summary>
 		public AppHost()
-			: base("EmptyServiceStack", typeof(MyServices).Assembly)
+			: base("PaladinGolf", typeof(GolfService).Assembly)
 		{
 
 		}
@@ -23,9 +28,8 @@ namespace EmptyServiceStack
 		/// <param name="container"></param>
 		public override void Configure(Container container)
 		{
-			//Config examples
-			//this.AddPlugin(new PostmanFeature());
-			//this.AddPlugin(new CorsFeature());
+			string connectionString = ConfigurationManager.ConnectionStrings[0].ConnectionString;
+			container.Register<IDbConnectionFactory>(c => new PaladinGolfDataConnectionFactory(connectionString));
 		}
 	}
 }

@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="EmptyServiceStack.Global" Language="C#" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="PaladinGolf.Global" Language="C#" %>

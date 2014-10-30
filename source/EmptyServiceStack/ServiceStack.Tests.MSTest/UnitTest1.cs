@@ -1,6 +1,6 @@
 ﻿using System;
-using EmptyServiceStack.ServiceInterface;
-using EmptyServiceStack.ServiceModel;
+using PaladinGolf.ServiceInterface;
+using PaladinGolf.ServiceModel;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ServiceStack.Testing;
 
@@ -13,7 +13,7 @@ namespace ServiceStack.Tests.MSTest
 		[ClassInitialize]
 		public static void TestInitialize(TestContext context)
 		{
-			appHost = new BasicAppHost(typeof(MyServices).Assembly)
+			appHost = new BasicAppHost(typeof(GolfService).Assembly)
 			{
 				ConfigureContainer = container =>
 				{
@@ -30,14 +30,16 @@ namespace ServiceStack.Tests.MSTest
 		[TestMethod]
 		public void TestMethod1()
 		{
-			var service = appHost.Container.Resolve<MyServices>();
+			var service = appHost.Container.Resolve<GolfService>();
+			var client = new JsonServiceClient("http://golf");
 
-			var response = (HelloResponse)service.Get(new Hello
+
+			var req =new PlayerRequest
 			{
-				Name = "World"
-			});
-
-			Assert.AreEqual<string>(response.Result, "Hello, World!");
+				LastName = "Thompson"
+			};
+			client.Post(req);
+			
 		}
 
 	}

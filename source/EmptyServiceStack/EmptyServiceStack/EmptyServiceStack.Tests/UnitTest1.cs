@@ -1,11 +1,11 @@
 ﻿using System;
 using NUnit.Framework;
-using EmptyServiceStack.ServiceInterface;
-using EmptyServiceStack.ServiceModel;
+using PaladinGolf.ServiceInterface;
+using PaladinGolf.ServiceModel;
 using ServiceStack.Testing;
 using ServiceStack;
 
-namespace EmptyServiceStack.Tests
+namespace PaladinGolf.Tests
 {
 	[TestFixture]
 	public class UnitTests
@@ -14,7 +14,7 @@ namespace EmptyServiceStack.Tests
 
 		public UnitTests()
 		{
-			appHost = new BasicAppHost(typeof(MyServices).Assembly)
+			appHost = new BasicAppHost(typeof(GolfService).Assembly)
 			{
 				ConfigureContainer = container =>
 				{
@@ -33,14 +33,14 @@ namespace EmptyServiceStack.Tests
 		[Test]
 		public void TestMethod1()
 		{
-			var service = appHost.Container.Resolve<MyServices>();
+			var service = appHost.Container.Resolve<GolfService>();
 
-			var response = (HelloResponse)service.Get(new Hello
+			var response = (PlayerResponse)service.Get(new PlayerRequest
 			{
-				Name = "World"
+				LastName = "World"
 			});
 
-			Assert.That(response.Result, Is.EqualTo("Hello, World!"));
+			//Assert.That(response.Result, Is.EqualTo("PlayerRequest, World!"));
 		}
 	}
 }

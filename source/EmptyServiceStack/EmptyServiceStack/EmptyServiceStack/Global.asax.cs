@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EmptyServiceStack
+namespace PaladinGolf
 {
 	public class Global : System.Web.HttpApplication
 	{
