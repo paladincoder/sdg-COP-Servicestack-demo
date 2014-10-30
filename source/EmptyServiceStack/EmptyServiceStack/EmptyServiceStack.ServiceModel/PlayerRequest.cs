@@ -8,7 +8,7 @@ using PaladinGolf.ServiceModel;
 
 namespace PaladinGolf.ServiceModel
 {
-	[Route("/Players/{Id}",Verbs="GET,DELETE")]
+	[Route("/Players/{Id}",Verbs="GET,DELETE",Notes="Delete In release 3")]
 	[Route("/Players/", Verbs = "GET,POST,PUT")]
 	public class PlayerRequest : IReturn<PlayerResponse>
 	{
