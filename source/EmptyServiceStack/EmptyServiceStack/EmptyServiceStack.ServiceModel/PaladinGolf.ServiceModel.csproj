@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="EventRequest.cs" />
     <Compile Include="EventResponse.cs" />
+    <Compile Include="GameRequest.cs" />
+    <Compile Include="GameResponse.cs" />
     <Compile Include="GroupRequest.cs" />
     <Compile Include="GroupResponse.cs" />
     <Compile Include="PlayerRequest.cs" />
@@ -52,9 +54,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResultsRequest.cs" />
     <Compile Include="ResultsResponse.cs" />
-    <Compile Include="Types\DbEvents.cs" />
+    <Compile Include="Types\DbEvent.cs" />
     <Compile Include="Types\DbGame.cs" />
-    <Compile Include="Types\DbGroup.cs" />
+    <Compile Include="Types\DbAttendee.cs" />
+    <Compile Include="Types\DbGameEvent.cs" />
     <Compile Include="Types\DbPlayer.cs" />
   </ItemGroup>
   <ItemGroup />

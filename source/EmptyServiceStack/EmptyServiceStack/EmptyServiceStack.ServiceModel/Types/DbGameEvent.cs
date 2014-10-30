@@ -7,7 +7,8 @@ using ServiceStack.DataAnnotations;
 
 namespace PaladinGolf.ServiceModel.Types
 {
-	public class DbGame
+	[Alias("GameEvent")]
+	public class DbGameEvent
 	{
 		[AutoIncrement]
 		public int Id
@@ -15,7 +16,14 @@ namespace PaladinGolf.ServiceModel.Types
 			get;
 			set;
 		}
-		public string Name
+		[References(typeof(DbGame))]
+		public int GameId
+		{
+			get;
+			set;
+		}
+		[References(typeof(DbEvent))]
+		public int EventId
 		{
 			get;
 			set;

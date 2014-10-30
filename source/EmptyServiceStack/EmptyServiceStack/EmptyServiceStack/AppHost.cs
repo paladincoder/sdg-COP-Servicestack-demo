@@ -6,6 +6,8 @@ using ServiceStack.Data;
 using ServiceStack.OrmLite;
 using PaladinGolf.Data;
 using System.Configuration;
+using ServiceStack.MiniProfiler;
+using ServiceStack.MiniProfiler.Data;
 
 namespace PaladinGolf
 {
@@ -29,7 +31,10 @@ namespace PaladinGolf
 		public override void Configure(Container container)
 		{
 			string connectionString = ConfigurationManager.ConnectionStrings[0].ConnectionString;
-			container.Register<IDbConnectionFactory>(c => new PaladinGolfDataConnectionFactory(connectionString));
+			container.Register<IDbConnectionFactory>(c => new PaladinGolfDataConnectionFactory(connectionString)
+			{
+				ConnectionFilter = x => new ProfiledDbConnection(x, Profiler.Current)
+			});
 		}
 	}
 }

@@ -7,7 +7,27 @@ using ServiceStack;
 
 namespace PaladinGolf.ServiceModel
 {
-	public class GroupRequest : IReturn <GroupResponse>
+	[Route("/Events",Verbs="POST")]
+	public class AttendeeRequest : IReturn <AttendeeResponse>
 	{
+		[ApiMember(Description="The Id of the Event")]
+		public int Id
+		{
+			get;
+			set;
+		}
+		[ApiMember(Description="The List of Player Ids")]
+		public List<int> PlayerIds
+		{
+			get;
+			set;
+		}
+		[ApiMember(Description="The list of game Ids in the event")]
+		public List<int> EventIds
+		{
+			get;
+			set;
+		}
+
 	}
 }

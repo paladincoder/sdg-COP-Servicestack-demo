@@ -2,20 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using ServiceStack;
 using ServiceStack.DataAnnotations;
+using PaladinGolf.ServiceModel;
 
-namespace PaladinGolf.ServiceModel.Types
+namespace PaladinGolf.ServiceModel
 {
-	[Alias("Player")]
-	public class DbPlayer
+	[Route("/Players/{Id}",Verbs="GET,DELETE")]
+	[Route("/Players/", Verbs = "GET,POST,PUT")]
+	public class PlayerRequest : IReturn<PlayerResponse>
 	{
-		[AutoIncrement]
-		[PrimaryKey]
-		public int Id
+		public int? Id
 		{
 			get;
 			set;
 		}
+		[ApiMember(IsRequired = true)]
+		[Required]
 		public string FirstName
 		{
 			get;
@@ -37,4 +40,5 @@ namespace PaladinGolf.ServiceModel.Types
 			set;
 		}
 	}
+
 }

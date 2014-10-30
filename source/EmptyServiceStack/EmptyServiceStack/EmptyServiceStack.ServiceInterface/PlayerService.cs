@@ -4,11 +4,11 @@ using System.Linq;
 using System.Web;
 using ServiceStack;
 using PaladinGolf.ServiceModel;
-using PaladinGolf.Data.Types;
 using ServiceStack.Data;
 using ServiceStack.Text;
 using ServiceStack.OrmLite;
 using System.Text;
+using PaladinGolf.ServiceModel.Types;
 
 
 namespace PaladinGolf.ServiceInterface
@@ -16,9 +16,13 @@ namespace PaladinGolf.ServiceInterface
 
 	public class PlayerService : Service
 	{
-
+		public PlayerResponse Delete(PlayerRequest request)
+		{
+			return null;
+		}
 		public PlayerResponse Get(PlayerRequest request)
 		{
+			List<DbPlayer> players = null;
 			if (request.Id.HasValue)
 				return new PlayerResponse()
 				{
@@ -26,24 +30,25 @@ namespace PaladinGolf.ServiceInterface
 				};
 			else
 			{
-				List<DbPlayer> players = null;
-				if (!string.IsNullOrEmpty(request.LastName))
-				{
-					players = Db.Select<DbPlayer>(p => p.LastName.StartsWith(request.LastName));
 
-					if (!string.IsNullOrEmpty(request.FirstName))
-					{
-						players = players.TakeWhile(p => p.FirstName.StartsWithIgnoreCase(request.FirstName)).ToList();
-					}
-					return new PlayerResponse()
+				if (request.LastName == null)
+					request.LastName = string.Empty;
+
+				players = Db.Select<DbPlayer>(p => p.LastName.StartsWith(request.LastName));
+
+				if (!string.IsNullOrEmpty(request.FirstName))
+				{
+					players = players.TakeWhile(p => p.FirstName.StartsWithIgnoreCase(request.FirstName)).ToList();
+				}
+
+
+			}
+
+			return new PlayerResponse()
 					{
 						Players = players
 					};
 
-				}
-			}
-			//By default, ArgumentException will return a 400 error to client
-			throw new ArgumentException("Bad Request");
 		}
 
 		public PlayerResponse Post(PlayerRequest request)

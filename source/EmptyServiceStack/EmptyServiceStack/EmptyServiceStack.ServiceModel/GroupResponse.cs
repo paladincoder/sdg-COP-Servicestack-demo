@@ -6,7 +6,7 @@ using ServiceStack;
 
 namespace PaladinGolf.ServiceModel
 {
-	public class GroupResponse : IHasResponseStatus
+	public class AttendeeResponse : IHasResponseStatus
 	{
 		public ResponseStatus ResponseStatus
 		{
