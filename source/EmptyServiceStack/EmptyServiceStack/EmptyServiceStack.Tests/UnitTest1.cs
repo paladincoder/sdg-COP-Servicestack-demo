@@ -14,7 +14,7 @@ namespace PaladinGolf.Tests
 
 		public UnitTests()
 		{
-			appHost = new BasicAppHost(typeof(GolfService).Assembly)
+			appHost = new BasicAppHost(typeof(PlayerService).Assembly)
 			{
 				ConfigureContainer = container =>
 				{
@@ -33,7 +33,7 @@ namespace PaladinGolf.Tests
 		[Test]
 		public void TestMethod1()
 		{
-			var service = appHost.Container.Resolve<GolfService>();
+			var service = appHost.Container.Resolve<PlayerService>();
 
 			var response = (PlayerResponse)service.Get(new PlayerRequest
 			{

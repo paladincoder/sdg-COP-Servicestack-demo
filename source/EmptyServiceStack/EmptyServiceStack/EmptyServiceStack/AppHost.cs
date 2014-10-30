@@ -16,7 +16,7 @@ namespace PaladinGolf
 		/// Base constructor requires a name and assembly to locate web service classes. 
 		/// </summary>
 		public AppHost()
-			: base("PaladinGolf", typeof(GolfService).Assembly)
+			: base("PaladinGolf", typeof(PlayerService).Assembly)
 		{
 
 		}

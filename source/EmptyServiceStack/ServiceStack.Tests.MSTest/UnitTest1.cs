@@ -13,7 +13,7 @@ namespace ServiceStack.Tests.MSTest
 		[ClassInitialize]
 		public static void TestInitialize(TestContext context)
 		{
-			appHost = new BasicAppHost(typeof(GolfService).Assembly)
+			appHost = new BasicAppHost(typeof(PlayerService).Assembly)
 			{
 				ConfigureContainer = container =>
 				{
@@ -30,7 +30,7 @@ namespace ServiceStack.Tests.MSTest
 		[TestMethod]
 		public void TestMethod1()
 		{
-			var service = appHost.Container.Resolve<GolfService>();
+			var service = appHost.Container.Resolve<PlayerService>();
 			var client = new JsonServiceClient("http://golf");
 
 
