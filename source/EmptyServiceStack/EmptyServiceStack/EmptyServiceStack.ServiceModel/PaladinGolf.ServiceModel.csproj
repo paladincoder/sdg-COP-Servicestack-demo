@@ -47,8 +47,8 @@
     <Compile Include="EventResponse.cs" />
     <Compile Include="GameRequest.cs" />
     <Compile Include="GameResponse.cs" />
-    <Compile Include="GroupRequest.cs" />
-    <Compile Include="GroupResponse.cs" />
+    <Compile Include="AttendeeRequest.cs" />
+    <Compile Include="AttendeeResponse.cs" />
     <Compile Include="PlayerRequest.cs" />
     <Compile Include="PlayerResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
