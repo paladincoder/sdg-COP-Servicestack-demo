@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="89fa084b8f01467c975ad9ba50ba40f3" Name="Diagram1">
+        <EntityTypeShape EntityType="paladingolfModel.Attendee" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="paladingolfModel.Course" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="paladingolfModel.Event" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="paladingolfModel.Game" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="paladingolfModel.GameEvent" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="paladingolfModel.Hole" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="paladingolfModel.Player" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <AssociationConnector Association="paladingolfModel.FK_Attendee_Event" ManuallyRouted="false" />
+        <AssociationConnector Association="paladingolfModel.FK_Group_Player" ManuallyRouted="false" />
+        <AssociationConnector Association="paladingolfModel.FK_Event_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="paladingolfModel.FK_Hole_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="paladingolfModel.FK_GameEvents_Event" ManuallyRouted="false" />
+        <AssociationConnector Association="paladingolfModel.FK_GameEvents_Game" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

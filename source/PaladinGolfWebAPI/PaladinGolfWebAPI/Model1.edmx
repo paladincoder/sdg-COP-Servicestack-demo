@@ -1,0 +1,445 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="paladingolfModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Attendee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EventId" Type="int" Nullable="false" />
+          <Property Name="PlayerId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="CourseId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Game">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GameName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GameEvent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GameId" Type="int" Nullable="false" />
+          <Property Name="EventId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Hole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="CourseId" Type="int" Nullable="false" />
+          <Property Name="Hole" Type="int" Nullable="false" />
+          <Property Name="Par" Type="int" Nullable="false" />
+          <Property Name="Handicap" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Player">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="GHIN" Type="int" />
+          <Property Name="HandicapIndex" Type="numeric" Precision="2" Scale="1" />
+        </EntityType>
+        <Association Name="FK_Attendee_Event">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="Attendee" Type="Self.Attendee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Attendee">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Event_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="CourseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GameEvents_Event">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="GameEvent" Type="Self.GameEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GameEvent">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GameEvents_Game">
+          <End Role="Game" Type="Self.Game" Multiplicity="1" />
+          <End Role="GameEvent" Type="Self.GameEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Game">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GameEvent">
+              <PropertyRef Name="GameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Group_Player">
+          <End Role="Player" Type="Self.Player" Multiplicity="1" />
+          <End Role="Attendee" Type="Self.Attendee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Attendee">
+              <PropertyRef Name="PlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hole_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="Hole" Type="Self.Hole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Hole">
+              <PropertyRef Name="CourseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="paladingolfModelStoreContainer">
+          <EntitySet Name="Attendee" EntityType="Self.Attendee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Event" EntityType="Self.Event" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Game" EntityType="Self.Game" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GameEvent" EntityType="Self.GameEvent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hole" EntityType="Self.Hole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Player" EntityType="Self.Player" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Attendee_Event" Association="Self.FK_Attendee_Event">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="Attendee" EntitySet="Attendee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Event_Course" Association="Self.FK_Event_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="Event" EntitySet="Event" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GameEvents_Event" Association="Self.FK_GameEvents_Event">
+            <End Role="Event" EntitySet="Event" />
+            <End Role="GameEvent" EntitySet="GameEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GameEvents_Game" Association="Self.FK_GameEvents_Game">
+            <End Role="Game" EntitySet="Game" />
+            <End Role="GameEvent" EntitySet="GameEvent" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group_Player" Association="Self.FK_Group_Player">
+            <End Role="Player" EntitySet="Player" />
+            <End Role="Attendee" EntitySet="Attendee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hole_Course" Association="Self.FK_Hole_Course">
+            <End Role="Course" EntitySet="Course" />
+            <End Role="Hole" EntitySet="Hole" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="paladingolfModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Attendee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EventId" Type="Int32" Nullable="false" />
+          <Property Name="PlayerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Event" Relationship="Self.FK_Attendee_Event" FromRole="Attendee" ToRole="Event" />
+          <NavigationProperty Name="Player" Relationship="Self.FK_Group_Player" FromRole="Attendee" ToRole="Player" />
+        </EntityType>
+        <EntityType Name="Course">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Events" Relationship="Self.FK_Event_Course" FromRole="Course" ToRole="Event" />
+          <NavigationProperty Name="Holes" Relationship="Self.FK_Hole_Course" FromRole="Course" ToRole="Hole" />
+        </EntityType>
+        <EntityType Name="Event">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CourseId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Attendees" Relationship="Self.FK_Attendee_Event" FromRole="Event" ToRole="Attendee" />
+          <NavigationProperty Name="Course" Relationship="Self.FK_Event_Course" FromRole="Event" ToRole="Course" />
+          <NavigationProperty Name="GameEvents" Relationship="Self.FK_GameEvents_Event" FromRole="Event" ToRole="GameEvent" />
+        </EntityType>
+        <EntityType Name="Game">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GameName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="GameEvents" Relationship="Self.FK_GameEvents_Game" FromRole="Game" ToRole="GameEvent" />
+        </EntityType>
+        <EntityType Name="GameEvent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GameId" Type="Int32" Nullable="false" />
+          <Property Name="EventId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Event" Relationship="Self.FK_GameEvents_Event" FromRole="GameEvent" ToRole="Event" />
+          <NavigationProperty Name="Game" Relationship="Self.FK_GameEvents_Game" FromRole="GameEvent" ToRole="Game" />
+        </EntityType>
+        <EntityType Name="Hole">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="CourseId" Type="Int32" Nullable="false" />
+          <Property Name="Hole1" Type="Int32" Nullable="false" />
+          <Property Name="Par" Type="Int32" Nullable="false" />
+          <Property Name="Handicap" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Course" Relationship="Self.FK_Hole_Course" FromRole="Hole" ToRole="Course" />
+        </EntityType>
+        <EntityType Name="Player">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GHIN" Type="Int32" />
+          <Property Name="HandicapIndex" Type="Decimal" Precision="2" Scale="1" />
+          <NavigationProperty Name="Attendees" Relationship="Self.FK_Group_Player" FromRole="Player" ToRole="Attendee" />
+        </EntityType>
+        <Association Name="FK_Attendee_Event">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="Attendee" Type="Self.Attendee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Attendee">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Group_Player">
+          <End Role="Player" Type="Self.Player" Multiplicity="1" />
+          <End Role="Attendee" Type="Self.Attendee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Player">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Attendee">
+              <PropertyRef Name="PlayerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Event_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="Event" Type="Self.Event" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Event">
+              <PropertyRef Name="CourseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Hole_Course">
+          <End Role="Course" Type="Self.Course" Multiplicity="1" />
+          <End Role="Hole" Type="Self.Hole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Course">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Hole">
+              <PropertyRef Name="CourseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GameEvents_Event">
+          <End Role="Event" Type="Self.Event" Multiplicity="1" />
+          <End Role="GameEvent" Type="Self.GameEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GameEvent">
+              <PropertyRef Name="EventId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GameEvents_Game">
+          <End Role="Game" Type="Self.Game" Multiplicity="1" />
+          <End Role="GameEvent" Type="Self.GameEvent" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Game">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="GameEvent">
+              <PropertyRef Name="GameId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="paladingolfEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Attendees" EntityType="Self.Attendee" />
+          <EntitySet Name="Courses" EntityType="Self.Course" />
+          <EntitySet Name="Events" EntityType="Self.Event" />
+          <EntitySet Name="Games" EntityType="Self.Game" />
+          <EntitySet Name="GameEvents" EntityType="Self.GameEvent" />
+          <EntitySet Name="Holes" EntityType="Self.Hole" />
+          <EntitySet Name="Players" EntityType="Self.Player" />
+          <AssociationSet Name="FK_Attendee_Event" Association="Self.FK_Attendee_Event">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="Attendee" EntitySet="Attendees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group_Player" Association="Self.FK_Group_Player">
+            <End Role="Player" EntitySet="Players" />
+            <End Role="Attendee" EntitySet="Attendees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Event_Course" Association="Self.FK_Event_Course">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="Event" EntitySet="Events" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Hole_Course" Association="Self.FK_Hole_Course">
+            <End Role="Course" EntitySet="Courses" />
+            <End Role="Hole" EntitySet="Holes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GameEvents_Event" Association="Self.FK_GameEvents_Event">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="GameEvent" EntitySet="GameEvents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GameEvents_Game" Association="Self.FK_GameEvents_Game">
+            <End Role="Game" EntitySet="Games" />
+            <End Role="GameEvent" EntitySet="GameEvents" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="paladingolfModelStoreContainer" CdmEntityContainer="paladingolfEntities">
+          <EntitySetMapping Name="Attendees">
+            <EntityTypeMapping TypeName="paladingolfModel.Attendee">
+              <MappingFragment StoreEntitySet="Attendee">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+                <ScalarProperty Name="PlayerId" ColumnName="PlayerId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="paladingolfModel.Course">
+              <MappingFragment StoreEntitySet="Course">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Events">
+            <EntityTypeMapping TypeName="paladingolfModel.Event">
+              <MappingFragment StoreEntitySet="Event">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Games">
+            <EntityTypeMapping TypeName="paladingolfModel.Game">
+              <MappingFragment StoreEntitySet="Game">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="GameName" ColumnName="GameName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GameEvents">
+            <EntityTypeMapping TypeName="paladingolfModel.GameEvent">
+              <MappingFragment StoreEntitySet="GameEvent">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="GameId" ColumnName="GameId" />
+                <ScalarProperty Name="EventId" ColumnName="EventId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Holes">
+            <EntityTypeMapping TypeName="paladingolfModel.Hole">
+              <MappingFragment StoreEntitySet="Hole">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+                <ScalarProperty Name="Hole1" ColumnName="Hole" />
+                <ScalarProperty Name="Par" ColumnName="Par" />
+                <ScalarProperty Name="Handicap" ColumnName="Handicap" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Players">
+            <EntityTypeMapping TypeName="paladingolfModel.Player">
+              <MappingFragment StoreEntitySet="Player">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="GHIN" ColumnName="GHIN" />
+                <ScalarProperty Name="HandicapIndex" ColumnName="HandicapIndex" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
