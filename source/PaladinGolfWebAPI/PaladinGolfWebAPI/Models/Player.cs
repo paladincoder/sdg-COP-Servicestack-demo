@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PaladinGolfWebAPI
+namespace PaladinGolfWebAPI.Models
 {
     using System;
     using System.Collections.Generic;

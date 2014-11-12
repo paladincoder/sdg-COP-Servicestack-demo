@@ -7,18 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PaladinGolfWebAPI
+namespace PaladinGolfWebAPI.Models
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Attendee
+    public partial class Game
     {
-        public int Id { get; set; }
-        public int EventId { get; set; }
-        public int PlayerId { get; set; }
+        public Game()
+        {
+            this.GameEvents = new HashSet<GameEvent>();
+        }
     
-        public virtual Event Event { get; set; }
-        public virtual Player Player { get; set; }
+        public int Id { get; set; }
+        public string GameName { get; set; }
+    
+        public virtual ICollection<GameEvent> GameEvents { get; set; }
     }
 }
