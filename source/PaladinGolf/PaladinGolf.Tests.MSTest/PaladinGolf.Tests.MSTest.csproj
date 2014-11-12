@@ -72,11 +72,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EmptyServiceStack\EmptyServiceStack.ServiceInterface\PaladinGolf.ServiceInterface.csproj">
+    <ProjectReference Include="..\PaladinGolf.Service\ServiceInterface\PaladinGolf.ServiceInterface.csproj">
       <Project>{801a0f89-d5f6-49a6-bcea-6624388c98a4}</Project>
       <Name>PaladinGolf.ServiceInterface</Name>
     </ProjectReference>
-    <ProjectReference Include="..\EmptyServiceStack\EmptyServiceStack.ServiceModel\PaladinGolf.ServiceModel.csproj">
+    <ProjectReference Include="..\PaladinGolf.Service\ServiceModel\PaladinGolf.ServiceModel.csproj">
       <Project>{53e82ac1-dd1d-4c66-b55f-f9f4acfb2f40}</Project>
       <Name>PaladinGolf.ServiceModel</Name>
     </ProjectReference>

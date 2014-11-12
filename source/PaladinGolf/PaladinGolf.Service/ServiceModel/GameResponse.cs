@@ -13,5 +13,11 @@ namespace PaladinGolf.ServiceModel
 			get;
 			set;
 		}
+
+		public List<Types.DbGame> Games
+		{
+			get;
+			set;
+		}
 	}
 }

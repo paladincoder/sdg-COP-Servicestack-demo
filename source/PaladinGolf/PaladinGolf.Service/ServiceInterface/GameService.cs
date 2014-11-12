@@ -16,8 +16,14 @@ namespace EmptyServiceStack.ServiceInterface
 		public GameResponse Get(GameRequest req)
 		{
 			if (req.Id > 0)
-				return Db.SingleById<DbGame>(req.Id).ConvertTo<GameResponse>();
-			throw new ArgumentException("Id is required");
+				return new GameResponse()
+				{
+					Games = new List<DbGame>() { Db.SingleById<DbGame>(req.Id) }
+				};
+			return new GameResponse()
+			{
+				Games = Db.Select<DbGame>()
+			};
 		}
 
 	}

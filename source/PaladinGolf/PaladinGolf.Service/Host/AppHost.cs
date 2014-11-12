@@ -30,6 +30,11 @@ namespace PaladinGolf
 		/// <param name="container"></param>
 		public override void Configure(Container container)
 		{
+			SetConfig(new HostConfig
+			{
+				HandlerFactoryPath = "api"
+			});
+
 			string connectionString = ConfigurationManager.ConnectionStrings[0].ConnectionString;
 			container.Register<IDbConnectionFactory>(c => new PaladinGolfDataConnectionFactory(connectionString)
 			{

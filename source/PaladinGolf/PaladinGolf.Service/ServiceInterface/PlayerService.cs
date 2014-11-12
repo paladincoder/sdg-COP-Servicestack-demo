@@ -57,7 +57,7 @@ namespace PaladinGolf.ServiceInterface
 			var id = Db.Save<DbPlayer>(p);
 			return new PlayerResponse()
 			{
-				Players = new List<DbPlayer>() { p }
+				Players = new List<DbPlayer>(){p}
 			};
 		}
 	}
