@@ -1,29 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 using ServiceStack.DataAnnotations;
 
 namespace PaladinGolf.ServiceModel.Types
 {
-	[Alias("GameEvent")]
-	public class DbGameEvent
+	public class Player
 	{
 		[AutoIncrement]
+		[PrimaryKey]
 		public int Id
 		{
 			get;
 			set;
 		}
-		[References(typeof(DbGame))]
-		public int GameId
+		public string FirstName
 		{
 			get;
 			set;
 		}
-		[References(typeof(DbEvent))]
-		public int EventId
+		public string LastName
+		{
+			get;
+			set;
+		}
+		public int? GHIN
+		{
+			get;
+			set;
+		}
+		public double? HandicapIndex
 		{
 			get;
 			set;

@@ -18,11 +18,11 @@ namespace EmptyServiceStack.ServiceInterface
 			if (req.Id > 0)
 				return new GameResponse()
 				{
-					Games = new List<DbGame>() { Db.SingleById<DbGame>(req.Id) }
+					Games = new List<Game>() { Db.SingleById<Game>(req.Id) }
 				};
 			return new GameResponse()
 			{
-				Games = Db.Select<DbGame>()
+				Games = Db.Select<Game>()
 			};
 		}
 

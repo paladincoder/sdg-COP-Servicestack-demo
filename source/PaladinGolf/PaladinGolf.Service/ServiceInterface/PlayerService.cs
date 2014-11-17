@@ -22,18 +22,18 @@ namespace PaladinGolf.ServiceInterface
 		}
 		public PlayerResponse Get(PlayerRequest request)
 		{
-			List<DbPlayer> players = null;
+			List<Player> players = null;
 			if (request.Id.HasValue)
 				return new PlayerResponse()
 				{
-					Players = Db.Select<DbPlayer>(p => p.Id == request.Id)
+					Players = Db.Select<Player>(p => p.Id == request.Id)
 				};
 			else
 			{
 				if (request.LastName == null)
 					request.LastName = string.Empty;
 
-				players = Db.Select<DbPlayer>(p => p.LastName.StartsWith(request.LastName));
+				players = Db.Select<Player>(p => p.LastName.StartsWith(request.LastName));
 
 				if (!string.IsNullOrEmpty(request.FirstName))
 				{
@@ -50,11 +50,11 @@ namespace PaladinGolf.ServiceInterface
 
 		public PlayerResponse Post(PlayerRequest request)
 		{
-			var p = request.ConvertTo<DbPlayer>();
-			var id = Db.Save<DbPlayer>(p);
+			var p = request.ConvertTo<Player>();
+			var id = Db.Save<Player>(p);
 			return new PlayerResponse()
 			{
-				Players = new List<DbPlayer>() { p }
+				Players = new List<Player>() { p }
 			};
 		}
 	}

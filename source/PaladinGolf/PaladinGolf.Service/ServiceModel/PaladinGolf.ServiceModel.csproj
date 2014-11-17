@@ -36,6 +36,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -54,11 +55,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResultsRequest.cs" />
     <Compile Include="ResultsResponse.cs" />
-    <Compile Include="Types\DbEvent.cs" />
-    <Compile Include="Types\DbGame.cs" />
-    <Compile Include="Types\DbAttendee.cs" />
-    <Compile Include="Types\DbGameEvent.cs" />
-    <Compile Include="Types\DbPlayer.cs" />
+    <Compile Include="Types\Event.cs" />
+    <Compile Include="Types\Game.cs" />
+    <Compile Include="Types\Attendee.cs" />
+    <Compile Include="Types\GameEvent.cs" />
+    <Compile Include="Types\Player.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

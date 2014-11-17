@@ -14,7 +14,7 @@ namespace PaladinGolf.ServiceModel
 			set;
 		}
 
-		public List<Types.DbGame> Games
+		public List<Types.Game> Games
 		{
 			get;
 			set;
