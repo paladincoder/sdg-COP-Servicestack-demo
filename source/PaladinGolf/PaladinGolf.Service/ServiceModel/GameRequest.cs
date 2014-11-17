@@ -10,16 +10,6 @@ namespace PaladinGolf.ServiceModel
 	[Route("/Games/{Id}")]
 	public class GameRequest : IReturn<GameResponse>
 	{
-		public List<int> GameIds
-		{
-			get;
-			set;
-		}
-		public List<int> PlayerIds
-		{
-			get;
-			set;
-		}
 
 		public int Id
 		{

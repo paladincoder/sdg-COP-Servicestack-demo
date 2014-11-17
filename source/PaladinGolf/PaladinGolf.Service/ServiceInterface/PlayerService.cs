@@ -30,7 +30,6 @@ namespace PaladinGolf.ServiceInterface
 				};
 			else
 			{
-
 				if (request.LastName == null)
 					request.LastName = string.Empty;
 
@@ -40,8 +39,6 @@ namespace PaladinGolf.ServiceInterface
 				{
 					players = players.TakeWhile(p => p.FirstName.StartsWithIgnoreCase(request.FirstName)).ToList();
 				}
-
-
 			}
 
 			return new PlayerResponse()
@@ -57,7 +54,7 @@ namespace PaladinGolf.ServiceInterface
 			var id = Db.Save<DbPlayer>(p);
 			return new PlayerResponse()
 			{
-				Players = new List<DbPlayer>(){p}
+				Players = new List<DbPlayer>() { p }
 			};
 		}
 	}
