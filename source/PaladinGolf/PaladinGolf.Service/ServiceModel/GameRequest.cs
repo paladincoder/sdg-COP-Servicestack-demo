@@ -7,6 +7,7 @@ using ServiceStack;
 
 namespace PaladinGolf.ServiceModel
 {
+	[Route("/Games/{Id}")]
 	public class GameRequest : IReturn<GameResponse>
 	{
 		public List<int> GameIds
