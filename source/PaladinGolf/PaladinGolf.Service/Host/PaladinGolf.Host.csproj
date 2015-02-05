@@ -98,6 +98,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\paladingolf.mdf" />
+    <Content Include="App_Data\paladingolf_log.ldf">
+      <DependentUpon>paladingolf.mdf</DependentUpon>
+    </Content>
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

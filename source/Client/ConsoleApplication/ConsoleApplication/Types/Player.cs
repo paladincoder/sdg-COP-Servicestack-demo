@@ -23,7 +23,7 @@ namespace PaladinGolfWebAPI.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public Nullable<int> GHIN { get; set; }
-        public Nullable<decimal> HandicapIndex { get; set; }
+        public Nullable<double> HandicapIndex { get; set; }
     
         public virtual ICollection<Attendee> Attendees { get; set; }
     }
